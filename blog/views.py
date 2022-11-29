@@ -30,13 +30,13 @@ def category_list(request):
     }
     return render(request, 'blog/category_list.html', context)
 
-def category_page(request, name):
+def category_post_list(request, name):
     category = Category.objects.get(name=name)
     posts = Post.objects.filter(categories__in=[category])
     context = {
         'posts': posts
     }
-    return render(request, 'blog/category_page', context)
+    return render(request, 'blog/post_list', context)
     
 
 def tag_list(request):
@@ -54,9 +54,9 @@ def tag_page(request, name):
     }
     return render(request, 'blog/tag_page.html', context)
 
-def post_list(request):
+def allposts(request):
     posts = Post.objects.all()
     context = {
         'posts': posts
     }
-    return render(request, 'blog/post_list.html', context)
+    return render(request, 'blog/all_posts.html', context)
