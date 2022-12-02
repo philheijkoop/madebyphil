@@ -1,14 +1,15 @@
-from django.urls import path
+from django.urls import path, include
 
-from .views import homepage, post, category_post_list, tag_list, tag_page, category_list, about, allposts
+from .views import HomeView, PostView, AboutView, CategoryListView, CategoryPostListView, TagListView, TagPageView, AllPostView
 
 urlpatterns = [
-    path('', homepage, name='homepage'),
-    path('blog/<slug>/', post, name='post'),
-    path('about/', about, name='about'),
-    path('category/<name>/', category_post_list, name='postlist'),
-    path('tags/<name>/', tag_page, name='tagpage'),
-    path('blog/', allposts, name='allpostlist'),
-    path('category/', category_list, name='categorylist'),
-    path('tags/', tag_list, name='taglist'),
+    path('', HomeView.as_view(), name='homepage'),
+    path('blog/<slug>/', PostView.as_view(), name='post'),
+    path('about/', AboutView.as_view(), name='about'),
+    path('category/<name>/', CategoryPostListView.as_view(), name='categorypostlist'),
+    path('tags/<name>/', TagPageView.as_view(), name='tagpage'),
+    path('blog/', AllPostView.as_view(), name='allpostlist'),
+    path('category/', CategoryListView.as_view(), name='categorylist'),
+    path('tags/', TagListView.as_view(), name='taglist'),
+    path('__debug__/', include('debug_toolbar.urls')),
 ]

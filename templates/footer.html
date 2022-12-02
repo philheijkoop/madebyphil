@@ -1,0 +1,44 @@
+<footer class="text-center">
+    <div class="row">
+        <div class="col-4">
+          <h5>Last 5 Blog Posts</h5>
+  
+          <ul>
+            {% for post in top_posts %}
+            <li>
+              <a href="#!">{{post.title}}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+  
+        <div class="col-4">
+          <h5>Top Categories</h5>
+  
+          <ul>
+            {% for category in top_categories %}
+            <li>
+              <a href="#">{{category.name}}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+  
+        <div class="col-4">
+          <h5>Top Tags</h5>
+  
+          <ul>
+            {% for tag in top_tags %}
+            <li>
+              <a href="#" >{{tag.name}}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+    </div>
+  
+    <div class="col">
+      © 2022 Copyright:
+      <a href="{% url 'homepage' %}">Phil Heijkoop</a>
+    </div>
+  </footer>

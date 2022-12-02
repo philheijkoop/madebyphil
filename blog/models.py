@@ -25,9 +25,12 @@ class Post(models.Model):
     last_updated = models.DateTimeField()
     published = models.BooleanField(default=False)
     draft = models.BooleanField(default=True)
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, blank=True, null=True)
     category = models.ForeignKey(Category, blank=True, null=True, on_delete=models.SET_NULL)
     series_number = models.IntegerField(default=0)
     raw_markdown = models.TextField()
+
+    def __str__(self):
+        return self.title
 
 
