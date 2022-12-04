@@ -6,7 +6,7 @@
           <ul>
             {% for post in top_posts %}
             <li>
-              <a href="#!">{{post.title}}</a>
+              <a href="{% url 'post' post.slug %}">{{post.title}}</a>
             </li>
             {% endfor %}
           </ul>
@@ -18,7 +18,7 @@
           <ul>
             {% for category in top_categories %}
             <li>
-              <a href="#">{{category.name}}</a>
+              <a href="{% url 'categorypostlist' category %}">{{category.name}}</a>
             </li>
             {% endfor %}
           </ul>
@@ -30,7 +30,7 @@
           <ul>
             {% for tag in top_tags %}
             <li>
-              <a href="#" >{{tag.name}}</a>
+              <a href="{% url 'tagpage' tag %}" >{{tag.name}}</a>
             </li>
             {% endfor %}
           </ul>

@@ -21,7 +21,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField()
     created = models.DateTimeField()
-    publish_date = models.DateTimeField()
+    publish_date = models.DateTimeField(null=True, blank=True)
     last_updated = models.DateTimeField()
     published = models.BooleanField(default=False)
     draft = models.BooleanField(default=True)

@@ -1,4 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Tag List</h1>
+<br>
+<ul>
+    {% for tag in tags %}
+    <a href="{% url 'tagpage' tag.name %}">
+        <li>{{tag.name}}</li>
+    </a>
+    {% endfor %}
+    </ul>
 {% endblock content %}
